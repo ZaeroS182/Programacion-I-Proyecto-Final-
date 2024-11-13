@@ -14,6 +14,17 @@ public class Camion extends Vehiculo{
 		this.longitud = longitud;
 		this.numeroEjes = numeroEjes;
 	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Camion [capacidadCarga=" + capacidadCarga + ", tipoCarga=" + tipoCarga + ", longitud=" + longitud
+				+ ", numeroEjes=" + numeroEjes + "]";
+	}
+
+
+
 	public double getCapacidadCarga() {
 		return capacidadCarga;
 	}

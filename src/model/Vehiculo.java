@@ -16,6 +16,13 @@ public class Vehiculo implements InterfaceVehiculo{
 		this.kilometraje = kilometraje;
 		this.year = year;
 	}
+	
+
+	public String toString() {
+		return "Vehiculo [marca=" + marca + ", modelo=" + modelo + ", vin=" + vin + ", color=" + color
+				+ ", kilometraje=" + kilometraje + ", year=" + year + "]";
+	}
+
 
 	public String getMarca() {
 		return marca;

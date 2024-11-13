@@ -1,4 +1,4 @@
-package application;
+/*package application;
 
 
 import javafx.application.Application;
@@ -19,10 +19,10 @@ import javafx.scene.layout.VBox;
 
 public class Main extends Application implements EventHandler<ActionEvent>{
 	
-
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 
 	@Override
 	public void start(Stage window) throws Exception {
@@ -99,7 +99,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		Button eliminarVehiculoInventario = new Button("Eliminar Vehículo del Inventario");
 		Button volverInventario = new Button ("Volver al Menu Principal");
 		Button actualizarInventario = new Button("Actualizar Inventario");
-		//Gestion de Mantenimiento 
+		//Gestion de Mantenimiento
 		Button gestionMantenimiento = new Button("Gestion vehiculos de mantenimiento");
 		Button registrarMantenimiento = new Button("Registrar Mantenimiento");
 		Button consultarMantenimiento = new Button("Consultar Mantenimiento");
@@ -168,9 +168,9 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		
 	}
 	
-	
+	//metodos de vehiculos
 
 
 	
 
-}
+}*/

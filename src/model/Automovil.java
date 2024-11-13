@@ -1,3 +1,4 @@
+
 package model;
 
 public class Automovil extends Vehiculo{
@@ -17,6 +18,15 @@ public class Automovil extends Vehiculo{
 		this.tipoCombustible = tipoCombustible;
 		this.tipoTraccion = tipoTraccion;
 	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Automovil [numeroPuertas=" + numeroPuertas + ", tipoTrasnmision=" + tipoTrasnmision
+				+ ", tipoCombustible=" + tipoCombustible + ", tipoTraccion=" + tipoTraccion + "]";
+	}
+
 
 
 	public int getNumeroPuertas() {
@@ -60,9 +70,7 @@ public class Automovil extends Vehiculo{
 	
 	
 	
-	
-	
-	
+
 	
 	
 	

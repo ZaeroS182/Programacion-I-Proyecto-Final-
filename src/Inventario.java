@@ -42,8 +42,8 @@ public class Inventario {
 			return true;
 			
 		}
-		hola como estas
 		
+			
 	}
 
 }

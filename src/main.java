@@ -6,5 +6,7 @@ public class main {
 
 	}
 	
-
+public void agregarCarro () {
+	
+}
 }

@@ -93,7 +93,7 @@ public class Concesionario {
 		
 	}
 	public String tipoVehiculo ( String vin) {
-		
+		return "";
 	}
 	
 	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,

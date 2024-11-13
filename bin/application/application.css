@@ -1,12 +1,13 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 VBox {
-	-fx-background-color: "deepskyblue";
+	-fx-background-color: deepskyblue;
 	-fx-font-family: "Lucida Console";
 	-fx-spacing: 12;
 	-fx-alignment: center;
 	
 	
 }
+
 ChoiceBox {
 	-fx-background-color: "white";
 	
@@ -16,11 +17,12 @@ ChoiceBox {
 .choice-box .menu-item:focused { -fx-background-color: orange; }
 
 GridPane {
-	-fx-background-color: "deepskyblue";
+	-fx-background-color: deepskyblue;
 	-fx-font-family: "Lucida Console";
 	-fx-padding: 10, 10, 10, 10;
 	-fx-vgap: 8;
 	-fx-hgap: 10;
+	-fx-alignment: center;
 }
 HBox {
 	-fx-alignment: center;
@@ -30,4 +32,5 @@ HBox {
 	-fx-background-color: "deepskyblue";
 
 }
+
 

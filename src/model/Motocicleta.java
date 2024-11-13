@@ -14,6 +14,16 @@ public class Motocicleta extends Vehiculo{
 		this.tipoFreno = tipoFreno;
 		this.cilindrada = cilindrada;
 	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "Motocicleta [tipoManillar=" + tipoManillar + ", numeroRuedas=" + numeroRuedas + ", tipoFreno="
+				+ tipoFreno + ", cilindrada=" + cilindrada + "]";
+	}
+
+
 
 	public ENUMtipoManillar getTipoManillar() {
 		return tipoManillar;

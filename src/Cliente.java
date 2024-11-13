@@ -4,14 +4,32 @@ public class Cliente {
 	private String correoElectronico;
 	private String numeroTelefonico;
 	private String domicilio;
+	private String id;
 	
-	
-	public Cliente(String nombre, String correoElectronico, String numeroTelefonico, String domicilio) {
+	public Cliente(String nombre, String correoElectronico, String numeroTelefonico, String domicilio, String id) {
 
 		this.nombre = nombre;
 		this.correoElectronico = correoElectronico;
 		this.numeroTelefonico = numeroTelefonico;
 		this.domicilio = domicilio;
+		this.id = id;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", correoElectronico=" + correoElectronico + ", numeroTelefonico="
+				+ numeroTelefonico + ", domicilio=" + domicilio + ", id=" + id + "]";
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 

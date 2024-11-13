@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import model.ENUMtipoCarga;
+import model.ENUMtipoVehiculo;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+
 
 
 public class Main extends Application implements EventHandler<ActionEvent>{
@@ -35,8 +36,8 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		//Gestion de Vehiculos 
 		Button gestionVehiculos = new Button("Gestion de Vehiculos");
 		//Ventana seleccion tipo de vehiculo
-		ChoiceBox<ENUMtipoCarga> chooseVehiculo = new ChoiceBox<>();
-		chooseVehiculo.getItems().setAll(ENUMtipoCarga.values());
+		ChoiceBox<ENUMtipoVehiculo> chooseVehiculo = new ChoiceBox<>();
+		chooseVehiculo.getItems().setAll(ENUMtipoVehiculo.values());
 		
 		GridPane addVehiculo = new GridPane();
 		addVehiculo.getStylesheets().add(css);
@@ -54,6 +55,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 		TextField colorInput = new TextField();
 		TextField kilometrajeInput = new TextField();
 		TextField yearInput = new TextField();
+		
 		
 		GridPane.setConstraints(marca, 0, 0);
 		GridPane.setConstraints(marcaInput, 1,0);

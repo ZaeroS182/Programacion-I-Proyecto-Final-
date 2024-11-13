@@ -1,17 +1,30 @@
+package model;
 
 public class Cliente {
 	private String nombre;
 	private String correoElectronico;
 	private String numeroTelefonico;
 	private String domicilio;
+	private String id;
 	
 	
-	public Cliente(String nombre, String correoElectronico, String numeroTelefonico, String domicilio) {
+	public Cliente(String nombre, String correoElectronico, String numeroTelefonico, String domicilio, String id) {
 
 		this.nombre = nombre;
 		this.correoElectronico = correoElectronico;
 		this.numeroTelefonico = numeroTelefonico;
 		this.domicilio = domicilio;
+		this.id = id;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 

@@ -1,6 +1,5 @@
+package model;
 import java.util.ArrayList;
-
-import model.Vehiculo;
 
 public class Mantenimiento {
 	private ArrayList<Vehiculo> vehiculosEnMantenimiento;

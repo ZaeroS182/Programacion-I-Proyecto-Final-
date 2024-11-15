@@ -68,6 +68,15 @@ public class Concesionario {
 		return mensaje;
 	}
 	
+	public boolean existeVin(String vin) {
+		Vehiculo v = inventario.buscarVehiculo(vin);
+		if(v == null) {
+			return false;
+		}
+
+		return true;
+	}
+	
 	public String buscarVehiculoInv(String vin) {
 		Vehiculo v = inventario.buscarVehiculo(vin);
 		String mensaje = "";
@@ -93,6 +102,7 @@ public class Concesionario {
 		
 	}
 	public String tipoVehiculo ( String vin) {
+		return "";
 		
 	}
 	
@@ -109,6 +119,50 @@ public class Concesionario {
 		
 		
 	}
+
+	public Boolean buscarId(String id) {
+		for(Cliente c : this.listaClientes) {
+			if(id.equalsIgnoreCase(c.getId())) {
+				return true;
+			}
+			
+		}
+		return false;
+
+	}
+
+	public void agregarCliente(Cliente c) {
+		this.listaClientes.add(c);
+
+	}
+
+	public Cliente buscarCliente(String id) {
+		for(Cliente c: this.listaClientes) {
+			if(id.equals(c.getId())) {
+				return c;
+			}
+		}
+
+		return null;
+	}
+
+	public void eliminarCliente(Cliente c) {
+		this.listaClientes.remove(c);
+
+	}
+
+	public String listarClientes() {
+		String lista = "";
+		int contador = 1;
+		for (Cliente cliente : this.listaClientes) {
+			lista += contador + ". " + cliente.getNombre() + "\n";
+			contador++;
+		}
+		return lista;
+
+	}
+
+
 	
 
 }

@@ -1,5 +1,7 @@
 package model;
 
+import ENUM.ENUMtipoCarga;
+
 public class Camion extends Vehiculo{
 	private double capacidadCarga;
 	private ENUMtipoCarga tipoCarga;
@@ -17,7 +19,7 @@ public class Camion extends Vehiculo{
 	
 	
 	
-	@Override
+
 	public String toString() {
 		return "Camion [capacidadCarga=" + capacidadCarga + ", tipoCarga=" + tipoCarga + ", longitud=" + longitud
 				+ ", numeroEjes=" + numeroEjes + "]";

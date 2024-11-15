@@ -18,7 +18,7 @@ public class Vehiculo implements InterfaceVehiculo{
 	}
 	
 
-	public String toString() {
+	public String tString() {
 		return "Vehiculo [marca=" + marca + ", modelo=" + modelo + ", vin=" + vin + ", color=" + color
 				+ ", kilometraje=" + kilometraje + ", year=" + year + "]";
 	}

@@ -1,14 +1,14 @@
+package model;
 
 
 import java.util.ArrayList;
 
-import model.Automovil;
-import model.Camion;
-import model.ENUMtipoCombustible;
-import model.ENUMtipoTraccion;
-import model.ENUMtipoTransmision;
-import model.Motocicleta;
-import model.Vehiculo;
+import ENUM.ENUMtipoCarga;
+import ENUM.ENUMtipoCombustible;
+import ENUM.ENUMtipoFreno;
+import ENUM.ENUMtipoManillar;
+import ENUM.ENUMtipoTraccion;
+import ENUM.ENUMtipoTransmision;
 
 public class Concesionario {
 	private String nombre;
@@ -56,7 +56,7 @@ public class Concesionario {
 		return mensaje;
 	}
     
-	public String EliminarVehiculoInv(String vin) {
+	public String eliminarVehiculoInv(String vin) {
 		boolean estado = inventario.eliminarVehiculo(vin);
 		String mensaje = "";
 		if ( estado == true) {
@@ -77,38 +77,78 @@ public class Concesionario {
 		}else if (v instanceof Motocicleta){
 			
 			Motocicleta m = (Motocicleta) v;
-			mensaje = m.toString() + v.toString();
+			mensaje = m.toString() + v.tString();
 			
 		}else if (v instanceof Automovil) {
 			
 			Automovil a = (Automovil) v;
-			mensaje = a.toString() + v.toString();
+			mensaje = a.toString() + v.tString();
 			
 		}else if (v instanceof Camion) {
 			Camion c = (Camion) v;
-			mensaje = c.toString() + v.toString();
+			mensaje = c.toString() + v.tString();
 		}
 		
 		return mensaje;
 		
 	}
-	public String tipoVehiculo ( String vin) {
-		
-	}
+
 	
 	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
 			int numeroPuertas, ENUMtipoTransmision tipoTrasnmision, ENUMtipoCombustible tipoCombustible,
 			ENUMtipoTraccion tipoTraccion) {
 		Vehiculo v = inventario.buscarVehiculo(vin);
 		Automovil a = (Automovil) v;
-		String mensaje = "";
+		
+		a.setColor(color);
+		a.setKilometraje(kilometraje);
+		a.setMarca(marca);
+		a.setModelo(modelo);
+		a.setNumeroPuertas(numeroPuertas);
+		a.setTipoCombustible(tipoCombustible);
+		a.setTipoTraccion(tipoTraccion);
+		a.setTipoTrasnmision(tipoTrasnmision);
+		a.setVin(vin);
+		a.setYear(year);
+		String mensaje = "vehiculo actualizado";
 		
 		
-		
-		return mensaje;
-		
-		
+		return mensaje;	
 	}
 	
-
+	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			double capacidadCarga, ENUMtipoCarga tipoCarga, double longitud, int numeroEjes) {
+		
+		Vehiculo v = inventario.buscarVehiculo(vin);
+		Camion c = (Camion) v;
+		c.setCapacidadCarga(capacidadCarga);
+		c.setColor(color);
+		c.setKilometraje(kilometraje);
+		c.setLongitud(longitud);
+		c.setMarca(marca);
+		c.setModelo(modelo);
+		c.setNumeroEjes(numeroEjes);
+		c.setTipoCarga(tipoCarga);
+		c.setVin(vin);
+		c.setYear(year);
+		String mensaje = "vehiculo actualizado";
+		return mensaje;
+	}
+	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			ENUMtipoManillar tipoManillar, int numeroRuedas, ENUMtipoFreno tipoFreno, double cilindrada) {
+		Vehiculo v = inventario.buscarVehiculo(vin);
+		Motocicleta m = (Motocicleta) v;
+		m.setCilindrada(cilindrada);
+		m.setColor(color);
+		m.setKilometraje(kilometraje);
+		m.setMarca(marca);
+		m.setModelo(modelo);
+		m.setNumeroRuedas(numeroRuedas);
+		m.setTipoFreno(tipoFreno);
+		m.setTipoManillar(tipoManillar);
+		m.setVin(vin);
+		m.setCilindrada(cilindrada);
+		String mensaje = "vehiculo actualizado";
+		return mensaje;
+	}
 }

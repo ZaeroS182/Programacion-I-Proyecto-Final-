@@ -233,7 +233,7 @@ public class main {
 	private static void agregarVehiculoInv() {
 		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo a agregar: ");
 		boolean existe =  concesionario.existeVin(vin);
-		if (existe == false) {
+		if (existe == true) {
 			String marca = JOptionPane.showInputDialog("Ingrese la marca del vehiculo: ");
 			String modelo = JOptionPane.showInputDialog("Ingrese l modelo del vehiculo: ");
 			String color = JOptionPane.showInputDialog("Indique el color del vehiculo: ");
@@ -494,6 +494,9 @@ public class main {
 			}
 			
 			
+		} else {
+			JOptionPane.showMessageDialog(null, "El VIN no corresponde a un vehiculo en Inventario");
+
 		}
 		
 	}

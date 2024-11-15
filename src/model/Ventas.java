@@ -9,7 +9,35 @@ public class Ventas {
 		this.ventas = new ArrayList <>();
 	}
 	
+	public Venta buscarVenta (String id) {
+		for (Venta v : ventas) {
+			if (v.getId().equals(id)) {
+				return v;
+			}
+		}
+		return null;
+		
+	}
 	
+	public Venta BuscarVenta (String vin) {
+		for (Venta v : ventas) {
+			if (v.getVin().equals(vin)) {
+				return v;
+			}
+		}
+		return null;
+	}
+	
+	
+	public boolean agregarVenta (Venta venta) {
+		Venta v = BuscarVenta (venta.getVin());
+		if (v == null ) {
+			ventas.add(venta);
+			return true;
+		}
+		return false;
+	}
+
 	
 	
 }

@@ -28,7 +28,7 @@ public class Mantenimiento {
 			vehiculosEnMantenimiento.remove(V);
 		return true;
 	}
-		}
+}
 	
 	public boolean agregarVehiculo(Vehiculo V) {
 		Vehiculo A = buscarVehiculo(V.getVin());

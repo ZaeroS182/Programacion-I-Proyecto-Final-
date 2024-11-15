@@ -1,6 +1,10 @@
 
 package model;
 
+import ENUM.ENUMtipoCombustible;
+import ENUM.ENUMtipoTraccion;
+import ENUM.ENUMtipoTransmision;
+
 public class Automovil extends Vehiculo{
 	
 	private int numeroPuertas;

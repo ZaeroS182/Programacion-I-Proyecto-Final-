@@ -1,4 +1,6 @@
 package Service;
+//git log --all --oneline --decorate --graph
+
 
 import javax.swing.JOptionPane;
 
@@ -9,6 +11,7 @@ import model.Concesionario;
 import ENUM.ENUMtipoCombustible;
 import ENUM.ENUMtipoTraccion;
 import ENUM.ENUMtipoTransmision;
+
 
 
 
@@ -271,16 +274,12 @@ public class main {
 				JOptionPane.showMessageDialog(null, concesionario.agregarVehiculoInv(automovil));
 				
 				
-			}
+				
+			} 
 			
 
-
-			
 			
 		}
-		
-		
-
 
 		
 	}

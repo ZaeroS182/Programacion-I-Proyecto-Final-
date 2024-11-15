@@ -9,6 +9,7 @@ import ENUM.ENUMtipoFreno;
 import ENUM.ENUMtipoManillar;
 import ENUM.ENUMtipoTraccion;
 import ENUM.ENUMtipoTransmision;
+import ENUM.ENUMtipoVehiculo;
 
 public class Concesionario {
 	private String nombre;
@@ -102,16 +103,26 @@ public class Concesionario {
 		
 	}
 
-	public String tipoVehiculo ( String vin) {
-		return "";
+	public ENUMtipoVehiculo tipoVehiculo ( String vin) {
+		Vehiculo v = inventario.buscarVehiculo(vin);
+		if (v instanceof Automovil) {
+			return ENUMtipoVehiculo.AUTOMOVIL;
+		} else if(v instanceof Motocicleta) {
+			return ENUMtipoVehiculo.MOTOCICLETA;
+		} else if (v instanceof Camion) {
+			return ENUMtipoVehiculo.CAMION;
+		}
+		return null;
+		
 		
 	}
 
 
 	
-	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
+	public String actualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
 			int numeroPuertas, ENUMtipoTransmision tipoTrasnmision, ENUMtipoCombustible tipoCombustible,
-			ENUMtipoTraccion tipoTraccion) {
+			ENUMtipoTraccion tipoTraccion, String nuevoVin) {
+		
 		Vehiculo v = inventario.buscarVehiculo(vin);
 		Automovil a = (Automovil) v;
 		
@@ -123,13 +134,14 @@ public class Concesionario {
 		a.setTipoCombustible(tipoCombustible);
 		a.setTipoTraccion(tipoTraccion);
 		a.setTipoTrasnmision(tipoTrasnmision);
-		a.setVin(vin);
+		a.setVin(nuevoVin);
 		a.setYear(year);
 		String mensaje = "vehiculo actualizado";
 		
 		
 		return mensaje;	
 	}
+	
 
 	public Boolean buscarId(String id) {
 		for(Cliente c : this.listaClientes) {
@@ -175,8 +187,8 @@ public class Concesionario {
 
 
 	
-	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
-			double capacidadCarga, ENUMtipoCarga tipoCarga, double longitud, int numeroEjes) {
+	public String actualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			double capacidadCarga, ENUMtipoCarga tipoCarga, double longitud, int numeroEjes, String nuevoVin) {
 		
 		Vehiculo v = inventario.buscarVehiculo(vin);
 		Camion c = (Camion) v;
@@ -188,13 +200,13 @@ public class Concesionario {
 		c.setModelo(modelo);
 		c.setNumeroEjes(numeroEjes);
 		c.setTipoCarga(tipoCarga);
-		c.setVin(vin);
+		c.setVin(nuevoVin);
 		c.setYear(year);
 		String mensaje = "vehiculo actualizado";
 		return mensaje;
 	}
-	public String ActualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
-			ENUMtipoManillar tipoManillar, int numeroRuedas, ENUMtipoFreno tipoFreno, double cilindrada) {
+	public String actualizarVehiculo (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			ENUMtipoManillar tipoManillar, int numeroRuedas, ENUMtipoFreno tipoFreno, double cilindrada, String nuevoVin) {
 		Vehiculo v = inventario.buscarVehiculo(vin);
 		Motocicleta m = (Motocicleta) v;
 		m.setCilindrada(cilindrada);
@@ -205,7 +217,7 @@ public class Concesionario {
 		m.setNumeroRuedas(numeroRuedas);
 		m.setTipoFreno(tipoFreno);
 		m.setTipoManillar(tipoManillar);
-		m.setVin(vin);
+		m.setVin(nuevoVin);
 		m.setCilindrada(cilindrada);
 		String mensaje = "vehiculo actualizado";
 		return mensaje;

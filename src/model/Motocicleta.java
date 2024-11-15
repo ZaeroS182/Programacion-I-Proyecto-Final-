@@ -1,5 +1,8 @@
 package model;
 
+import ENUM.ENUMtipoFreno;
+import ENUM.ENUMtipoManillar;
+
 public class Motocicleta extends Vehiculo{
 	private ENUMtipoManillar tipoManillar;
 	private int numeroRuedas;

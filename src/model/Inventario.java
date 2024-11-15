@@ -1,6 +1,5 @@
+package model;
 import java.util.ArrayList;
-
-import model.Vehiculo;
 
 public class Inventario {
 	private ArrayList<Vehiculo> vehiculosEnInventario;
@@ -35,11 +34,10 @@ public class Inventario {
 	public boolean agregarVehiculo(Vehiculo V) {
 		Vehiculo A = buscarVehiculo(V.getVin());
 		if (A == null) {
-			return false;
-			
-		}else {
 			vehiculosEnInventario.add(V);
 			return true;
+		}else {
+			return false;
 			
 		}
 		

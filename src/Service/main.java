@@ -1,5 +1,6 @@
 package Service;
 //git log --all --oneline --decorate --graph
+//
 
 
 import javax.swing.JOptionPane;
@@ -19,14 +20,28 @@ import ENUM.ENUMtipoTransmision;
 import ENUM.ENUMtipoVehiculo;
 
 
-
-
-
 public class main {
 	
 	public static Concesionario concesionario = new Concesionario("kia");
+	
+	public static void quemarClientes() {
+		Cliente c1 = new Cliente("Jorge", "jojo@gmail.com", "311", "Av 111", "1");
+		Cliente c2 = new Cliente("Luis", "luis@gmail.com", "322", "Av 222", "2");
+		Cliente c3 = new Cliente("Buba", "buba@gmail.com", "333", "Av 333", "3");
+		Cliente c4 = new Cliente("Tristo", "tristo@gmail.com", "344", "Av 444", "4");
+		Cliente c5 = new Cliente("Negro", "negro@gmail.com", "355", "Av 555", "5");
+		
+		concesionario.agregarCliente(c1);
+		concesionario.agregarCliente(c2);
+		concesionario.agregarCliente(c3);
+		concesionario.agregarCliente(c4);
+		concesionario.agregarCliente(c5);
+		
+	}
 
 	public static void main (String[] args) {
+		
+		quemarClientes();
 		
 		String menuPrincipal = "Por favor indique una opcion: "
 				+ "\n1. Clientes"
@@ -81,7 +96,19 @@ public class main {
 			break;
 		}
 		case 3: {
+			String menuVentas = "Gestion de Ventas:"
+					+ "\n1. Registrar venta"
+					+ "\n2. Buscar venta"
+					+ "\n3. Modificar venta"
+					+ "\n4. Eliminar venta"
+					+ "\n5. Listar ventas"
+					+ "\n0. Volver";
+			int indica;
 			
+			do {
+				indica = Integer.parseInt(JOptionPane.showInputDialog(menuVentas));
+				menuVentas(indica);
+			} while (indica != 0);
 			break;
 			
 		}
@@ -92,6 +119,7 @@ public class main {
 		}
 	}
 	
+
 	private static void menuClientes(int indicaMenu) {
 		switch (indicaMenu) {
 		case 1: {
@@ -122,7 +150,6 @@ public class main {
 
 	}
 	
-	
 	private static void menuVehiculos(int indica) {
 		switch (indica) {
 		case 1: {
@@ -151,7 +178,34 @@ public class main {
 
 		
 	}
-
+	
+	private static void menuVentas(int indica) {
+		switch (indica) {
+		case 1: {
+			registrarVenta();			
+			break;
+		}
+		case 2: {
+			buscarVenta();
+			break;
+		}
+		case 3: {
+			modificarVenta();
+			break;
+		}
+		case 4: {
+			eliminarVenta();
+			break;
+		}
+		case 5: {
+			listarVentas();
+			break;
+		}
+		default:
+			break;
+		}
+		
+	}
 
 
 
@@ -502,6 +556,35 @@ public class main {
 	}
 	
 	private static void listarVehiculosInv() {
+		
+	}
+	
+	/************************************
+	 *			VENTAS
+	 *************************************/
+	
+	private static void registrarVenta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void buscarVenta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void modificarVenta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void eliminarVenta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void listarVentas() {
+		// TODO Auto-generated method stub
 		
 	}
 }

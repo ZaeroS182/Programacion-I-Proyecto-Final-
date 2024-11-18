@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Ventas {
 	private ArrayList <Venta> ventas;
 
+
 	public Ventas() {
 		this.ventas = new ArrayList <>();
 	}
@@ -18,10 +19,12 @@ public class Ventas {
 		return null;
 		
 	}
-	
+	/*
 	public Venta BuscarVenta (String vin) {
 		for (Venta v : ventas) {
-			if (v.getVin().equals(vin)) {
+			if (v instanceof ventaVehiculo) {
+				
+				if (v.getVin().equals(vin)
 				return v;
 			}
 		}
@@ -40,4 +43,5 @@ public class Ventas {
 
 	
 	
+*/
 }

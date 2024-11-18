@@ -1,13 +1,19 @@
 package model;
 public class Venta {
 	private Cliente cliente ;
-	private Vehiculo vehiculo;
-	private String tipoServicio;
+	public static int id=0;
+	private int consecutivo;
+
 	
-	public Venta(Cliente cliente, Vehiculo vehiculo, String tipoServicio) {
+	public Venta(Cliente cliente) {
+		++id;
 		this.cliente = cliente;
-		this.vehiculo = vehiculo;
-		this.tipoServicio = tipoServicio;
+		this.consecutivo = id;
+		
+	}
+
+	public int getConsecutivo() {
+		return consecutivo;
 	}
 
 	public Cliente getCliente() {
@@ -18,28 +24,7 @@ public class Venta {
 		this.cliente = cliente;
 	}
 
-	public Vehiculo getVehiculo() {
-		return vehiculo;
-	}
-
-	public void setVehiculo(Vehiculo vehiculo) {
-		this.vehiculo = vehiculo;
-	}
-
-	public String getTipoServicio() {
-		return tipoServicio;
-	}
-
-	public void setTipoServicio(String tipoServicio) {
-		this.tipoServicio = tipoServicio;
-	}
-	
 	public String getId () {
 		return cliente.getId();
 	}
-	
-	public String getVin () {
-		return vehiculo.getVin();
-	}
-	
 }

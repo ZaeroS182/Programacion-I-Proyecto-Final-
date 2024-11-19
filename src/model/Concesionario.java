@@ -2,6 +2,7 @@ package model;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import ENUM.ENUMtipoCarga;
 import ENUM.ENUMtipoCombustible;
@@ -232,5 +233,32 @@ public class Concesionario {
 		return lista;
 
 	}
+	
+	// metodos Ventas
+	
+	public String agregarVenta (Venta venta) {
+		boolean v = ventas.agregarVenta(venta);
+		if (v== true) {
+			inventario.eliminarVehiculo(venta.getVin());
+			return "Venta exitosa";
+		}
+	
+		return "";
+		
+	}
+	
+	public String historialCliente (String id) {
+		return ventas.historialCliente(id);
+				
+	}
+	
+	public String getVentasTipoV (int valor) {
+		return ventas.historialVentas(valor);
+	}
+	
+	public String getVentasFecha (Date fecha) {
+		return ventas.historialVentas(fecha);
+	}
+	
 }
 	

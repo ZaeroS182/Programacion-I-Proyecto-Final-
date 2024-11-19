@@ -3,6 +3,9 @@ package Service;
 //
 
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
 
@@ -13,6 +16,8 @@ import model.Concesionario;
 import model.Mantenimientos;
 import model.Motocicleta;
 import model.Vehiculo;
+import model.Venta;
+import model.ventaVehiculo;
 import ENUM.ENUMtipoCarga;
 import ENUM.ENUMtipoCombustible;
 import ENUM.ENUMtipoFreno;
@@ -216,10 +221,7 @@ public class main {
 			eliminarVenta();
 			break;
 		}
-		case 5: {
-			listarVentas();
-			break;
-		}
+
 		default:
 			break;
 		}
@@ -256,7 +258,6 @@ public class main {
 		}
 
 	}
-
 
 
 
@@ -607,7 +608,7 @@ public class main {
 	}
 	
 	private static void listarVehiculosInv() {
-		JOptionPane.showMessageDialog(null, "");
+		JOptionPane.showMessageDialog(null, concesionario.listarVehiculosInv());
 		
 	}
 	
@@ -618,23 +619,108 @@ public class main {
 	private static void registrarVenta() {
 		Cliente c = concesionario.buscarCliente(JOptionPane.showInputDialog("Ingrese el ID del cliente: "));
 		if(c == null) {
-			agregarCliente();
+			JOptionPane.showMessageDialog(null, "El cliente no pertenece a la base de datos");
 		} else {
 			Vehiculo v = concesionario.getVehiculoInv(JOptionPane.showInputDialog("Ingrese el VIN del vehiculo a vender: "));
 			if(v == null) {
-								
+				JOptionPane.showMessageDialog(null, "El VIN no corresponde a un vehiculo en inventario");
 				
+			} else {
+				Double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio de venta: "));
+				Venta venta =  new ventaVehiculo(c, v, precio);
+				//JOptionPane.showMessageDialog(null, concesionario.agregarVenta(venta));
+					
 			}
 						
 		}
 		
 		
+	}
+
+	private static void buscarVenta() {
+		String menu = "Seleccion el criterio de busqueda: "
+				+ "\n1. Tipo de vehiculo"
+				+ "\n2. ID del cliente"
+				+ "\n3. Fecha"
+				+ "\n4. Volver";
+		int select;
+		do { 
+			select = Integer.parseInt(JOptionPane.showInputDialog(menu));
+			selectBuscarVenta(select);
+
+		} while (select != 0);
+
+	}
+
+	private static void selectBuscarVenta(int select) {
+		switch (select) {
+		case 1: {
+			buscarTipoV();
+			break;
+		}
+		case 2: {
+			buscarId();
+			break;
+		}
+		case 3: {
+			buscarFecha();
+			break;
+		}
+		default:
+			break;
+		}
 
 		
 	}
 
-	private static void buscarVenta() {
-		// TODO Auto-generated method stub
+
+
+
+
+	private static void buscarTipoV() {
+		String menu = "Seleccion el tipo de vehiculo: "
+				+ "\n1. Motocicleta"
+				+ "\n2. Automovil"
+				+ "\n3. Camion"
+				+ "\n4. Volver";
+		int select;
+		do { 
+			select = Integer.parseInt(JOptionPane.showInputDialog(menu));
+			tipoV(select);
+
+		} while (select != 0);
+	}
+
+	private static void tipoV(int select) {
+		switch (select) {
+		case 1: {
+			
+			break;
+		}
+		case 2: {
+			
+			break;
+		}
+		case 3: {
+			
+			break;
+		}
+		default:
+			break;
+		}
+		
+	}
+	
+	private static void buscarId() {
+		String id = JOptionPane.showInputDialog("Ingrese la ID del cliente: ");
+		
+		
+	}
+	
+	private static void buscarFecha() {
+		String fecha = JOptionPane.showInputDialog("Ingrese la fecha: (Ej: 19-08-2019");
+		LocalDate fechaa = LocalDate.parse(fecha);
+		System.out.println(fechaa);
 		
 	}
 
@@ -648,10 +734,7 @@ public class main {
 		
 	}
 
-	private static void listarVentas() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	/********************************
 	 * 			MANTENIMIENTOS

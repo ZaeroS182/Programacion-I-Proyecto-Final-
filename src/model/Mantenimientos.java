@@ -2,7 +2,8 @@ package model;
 import java.util.ArrayList;
 
 public class Mantenimientos {
-	private ArrayList<Vehiculo> vehiculosEnMantenimiento;
+	private ArrayList<Vehiculo
+	> vehiculosEnMantenimiento;
 	
 	public Mantenimientos() {
 		this.vehiculosEnMantenimiento = new ArrayList<>();

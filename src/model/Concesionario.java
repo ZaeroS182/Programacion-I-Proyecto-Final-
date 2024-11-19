@@ -79,9 +79,12 @@ public class Concesionario {
 
 		return true;
 	}
+	public Vehiculo getVehiculoInv(String vin) {
+		return inventario.buscarVehiculo(vin);
+	}
 	
 	public String buscarVehiculoInv(String vin) {
-		Vehiculo v = inventario.buscarVehiculo(vin);
+		Vehiculo v = getVehiculoInv(vin);
 		String mensaje = "";
 		if (v == null) {
 			mensaje = "vehiculo no encontrado";
@@ -178,6 +181,10 @@ public class Concesionario {
 		m.setCilindrada(cilindrada);
 		String mensaje = "vehiculo actualizado";
 		return mensaje;
+	}
+	
+	public String listarVehiculosInv () {
+		return inventario.listarVehiculos();
 	}
 
 

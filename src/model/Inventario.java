@@ -39,9 +39,18 @@ public class Inventario {
 		}else {
 			return false;
 			
+			}
+			
 		}
 		
-			
+	public String listarVehiculos () {
+		String mensaje = "";
+		for (Vehiculo v : vehiculosEnInventario) {
+			mensaje += v.Referencia() + "\n";
+		}
+		return mensaje;
 	}
-
+			
 }
+
+

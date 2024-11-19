@@ -15,14 +15,14 @@ public class Concesionario {
 	private String nombre;
 	private ArrayList<Cliente> listaClientes;
 	private Inventario inventario;
-	private Mantenimiento mantenimiento;
+	private Mantenimientos mantenimiento;
 	private Ventas ventas;
 	
 	public Concesionario (String nombre) {
 		this.nombre = nombre;
 		this.listaClientes = new ArrayList<>();
 		this.inventario = new Inventario();
-		this.mantenimiento = new Mantenimiento();	
+		this.mantenimiento = new Mantenimientos();	
 		this.ventas = new Ventas ();
 		
 	}
@@ -39,11 +39,11 @@ public class Concesionario {
 		return listaClientes;
 	}
 
-	public Mantenimiento getMantenimiento() {
+	public Mantenimientos getMantenimiento() {
 		return mantenimiento;
 	}
 
-	public void setMantenimiento(Mantenimiento mantenimiento) {
+	public void setMantenimiento(Mantenimientos mantenimiento) {
 		this.mantenimiento = mantenimiento;
 	}
 	

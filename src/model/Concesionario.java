@@ -84,7 +84,7 @@ public class Concesionario {
 	}
 	
 	public String buscarVehiculoInv(String vin) {
-		Vehiculo v = getVehiculoinv(vin);
+		Vehiculo v = getVehiculoInv(vin);
 		String mensaje = "";
 		if (v == null) {
 			mensaje = "vehiculo no encontrado";

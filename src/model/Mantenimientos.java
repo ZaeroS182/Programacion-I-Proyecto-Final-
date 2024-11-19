@@ -1,16 +1,16 @@
 package model;
 import java.util.ArrayList;
 
-public class Inventario {
-	private ArrayList<Vehiculo> vehiculosEnInventario;
+public class Mantenimientos {
+	private ArrayList<Vehiculo
+	> vehiculosEnMantenimiento;
 	
-	
-	public Inventario () {
-		this.vehiculosEnInventario = new ArrayList<>();
+	public Mantenimientos() {
+		this.vehiculosEnMantenimiento = new ArrayList<>();
 	}
-
+		
 	public Vehiculo buscarVehiculo(String vin) {
-		for (Vehiculo V : vehiculosEnInventario) {
+		for (Vehiculo V : vehiculosEnMantenimiento) {
 			if (V.getVin().equals(vin)) {
 				
 				return V;
@@ -26,31 +26,21 @@ public class Inventario {
 			return false;
 		}else {
 		
-		vehiculosEnInventario.remove(V);
+			vehiculosEnMantenimiento.remove(V);
 		return true;
 	}
-		}
+}
 	
 	public boolean agregarVehiculo(Vehiculo V) {
 		Vehiculo A = buscarVehiculo(V.getVin());
 		if (A == null) {
-			vehiculosEnInventario.add(V);
+			vehiculosEnMantenimiento.add(V);
 			return true;
+			
 		}else {
 			return false;
-			
-			}
-			
 		}
 		
-	public String listarVehiculos () {
-		String mensaje = "";
-		for (Vehiculo v : vehiculosEnInventario) {
-			mensaje += v.Referencia() + "\n";
-		}
-		return mensaje;
 	}
-			
+
 }
-
-

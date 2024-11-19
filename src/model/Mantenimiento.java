@@ -1,44 +1,34 @@
 package model;
-import java.util.ArrayList;
 
-public class Mantenimiento {
-	private ArrayList<Vehiculo> vehiculosEnMantenimiento;
+public class Mantenimiento extends Venta{
+	private Vehiculo vehiculo;
+	private String Caracteristicas;
 	
-	public Mantenimiento() {
-		this.vehiculosEnMantenimiento = new ArrayList<>();
+	public Mantenimiento(Cliente cliente,Vehiculo vehiculo,String caracteristicas) {
+		super(cliente);
+		this.vehiculo=vehiculo;
+		this.Caracteristicas=caracteristicas;
 	}
-		
-	public Vehiculo buscarVehiculo(String vin) {
-		for (Vehiculo V : vehiculosEnMantenimiento) {
-			if (V.getVin().equals(vin)) {
-				
-				return V;
-			}
-		}
-		return null;
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
 	}
-	
-	public boolean eliminarVehiculo(String vin) {
-		Vehiculo V = buscarVehiculo(vin);
-		
-		if (V == null) {
-			return false;
-		}else {
-		
-			vehiculosEnMantenimiento.remove(V);
-		return true;
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
-		}
-	
-	public boolean agregarVehiculo(Vehiculo V) {
-		Vehiculo A = buscarVehiculo(V.getVin());
-		if (A == null) {
-			vehiculosEnMantenimiento.add(V);
-			return true;
-			
-		}else {
-			return false;
-		}
+
+	public String getCaracteristicas() {
+		return Caracteristicas;
+	}
+
+	public void setCaracteristicas(String caracteristicas) {
+		Caracteristicas = caracteristicas;
+	}
+
+	public void añadirCarac (String mensaje) {
+		String newMensaje = "["+mensaje+"]";
+		this.Caracteristicas += newMensaje;
 		
 	}
 

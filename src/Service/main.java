@@ -17,7 +17,6 @@ import model.Mantenimientos;
 import model.Motocicleta;
 import model.Vehiculo;
 import model.Venta;
-import model.ventaVehiculo;
 import ENUM.ENUMtipoCarga;
 import ENUM.ENUMtipoCombustible;
 import ENUM.ENUMtipoFreno;
@@ -627,8 +626,8 @@ public class main {
 				
 			} else {
 				Double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio de venta: "));
-				Venta venta =  new ventaVehiculo(c, v, precio);
-				//JOptionPane.showMessageDialog(null, concesionario.agregarVenta(venta));
+				Venta venta =  new Venta(c, v, precio);
+				JOptionPane.showMessageDialog(null, concesionario.agregarVenta(venta));
 					
 			}
 						
@@ -674,9 +673,6 @@ public class main {
 	}
 
 
-
-
-
 	private static void buscarTipoV() {
 		String menu = "Seleccion el tipo de vehiculo: "
 				+ "\n1. Motocicleta"
@@ -694,15 +690,15 @@ public class main {
 	private static void tipoV(int select) {
 		switch (select) {
 		case 1: {
-			
+			concesionario.getVentasTipoV(1);
 			break;
 		}
 		case 2: {
-			
+			concesionario.getVentasTipoV(2);
 			break;
 		}
 		case 3: {
-			
+			concesionario.getVentasTipoV(3);
 			break;
 		}
 		default:
@@ -713,6 +709,15 @@ public class main {
 	
 	private static void buscarId() {
 		String id = JOptionPane.showInputDialog("Ingrese la ID del cliente: ");
+		String mensaje = concesionario.historialCliente(id);
+		if (mensaje.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "La ID no tiene historial de ventas registradas.");
+		} else {
+			JOptionPane.showMessageDialog(null, mensaje);
+		}
+		
+
+		
 		
 		
 	}
@@ -720,17 +725,28 @@ public class main {
 	private static void buscarFecha() {
 		String fecha = JOptionPane.showInputDialog("Ingrese la fecha: (Ej: 19-08-2019");
 		LocalDate fechaa = LocalDate.parse(fecha);
-		System.out.println(fechaa);
+		String mensaje = concesionario.getVentasFecha(fechaa);
+		if (mensaje.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "La fecha no tiene historial de ventas registradas.");
+		} else {
+			JOptionPane.showMessageDialog(null, mensaje);
+		}
+		
 		
 	}
 
 	private static void modificarVenta() {
-		// TODO Auto-generated method stub
+		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo: ");
+		int consecutivo = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de consecutivo: "));
+		String venta = concesionario.buscarVenta(vin, consecutivo);
+		
+
 		
 	}
 
 	private static void eliminarVenta() {
-		// TODO Auto-generated method stub
+		
+
 		
 	}
 

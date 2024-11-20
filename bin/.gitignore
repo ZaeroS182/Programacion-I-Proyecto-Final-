@@ -1,10 +1,2 @@
-<<<<<<< HEAD
-/model/
-=======
-/main.class
-/application/
-/model/
-/logica/
-/ENUM/
 /Service/
->>>>>>> 965fc86c832ed2e86361ecc0b3cfa5e5d60cbcb0
+/model/

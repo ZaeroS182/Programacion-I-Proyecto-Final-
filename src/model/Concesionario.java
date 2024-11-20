@@ -257,7 +257,11 @@ public class Concesionario {
 		return ventas.historialVentas(valor);
 	}
 	
+<<<<<<< HEAD
 	public String getVentasFecha (LocalDate fecha) {
+=======
+	public String getVentasFecha (Date fecha) {
+>>>>>>> 59c95ce7ac8461b7ad46d5d9e698ea56d2a2b4fb
 		return ventas.historialVentas(fecha);
 	}
 	

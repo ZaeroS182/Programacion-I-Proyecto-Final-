@@ -117,8 +117,13 @@ public class Ventas {
 		
 		}
 	
+<<<<<<< HEAD
 
 	public String historialVentas(LocalDate fecha) {
+=======
+	@SuppressWarnings("unlikely-arg-type")
+	public String historialVentas(Date fecha) {
+>>>>>>> 59c95ce7ac8461b7ad46d5d9e698ea56d2a2b4fb
 		String mensaje = "";
 		for (Venta v : ventas) {
 			if (v.getFecha().equals(fecha)) {

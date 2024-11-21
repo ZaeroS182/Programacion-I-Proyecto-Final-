@@ -2,8 +2,7 @@ package model;
 import java.util.ArrayList;
 
 public class Mantenimientos {
-	private ArrayList<Vehiculo
-	> vehiculosEnMantenimiento;
+	private ArrayList<Vehiculo> vehiculosEnMantenimiento;
 	
 	public Mantenimientos() {
 		this.vehiculosEnMantenimiento = new ArrayList<>();
@@ -41,6 +40,13 @@ public class Mantenimientos {
 			return false;
 		}
 		
+	}
+	public String listarVehiculos () {
+		String mensaje = "";
+		for (Vehiculo v : vehiculosEnMantenimiento) {
+			mensaje += v.Referencia() + "\n";
+		}
+		return mensaje;
 	}
 
 }

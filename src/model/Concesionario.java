@@ -16,14 +16,14 @@ public class Concesionario {
 	private String nombre;
 	private ArrayList<Cliente> listaClientes;
 	private Inventario inventario;
-	private Mantenimientos mantenimiento;
+	private Mantenimientos mantenimientos;
 	private Ventas ventas;
 	
 	public Concesionario (String nombre) {
 		this.nombre = nombre;
 		this.listaClientes = new ArrayList<>();
 		this.inventario = new Inventario();
-		this.mantenimiento = new Mantenimientos();	
+		this.mantenimientos = new Mantenimientos();	
 		this.ventas = new Ventas ();
 		
 	}
@@ -41,11 +41,11 @@ public class Concesionario {
 	}
 
 	public Mantenimientos getMantenimiento() {
-		return mantenimiento;
+		return mantenimientos;
 	}
 
 	public void setMantenimiento(Mantenimientos mantenimiento) {
-		this.mantenimiento = mantenimiento;
+		this.mantenimientos = mantenimiento;
 	}
 	
 	// Metodos del inventario y gestion de vehiculos en el mismo.
@@ -235,6 +235,22 @@ public class Concesionario {
 	}
 	
 	// metodos Ventas
+	public String buscarVenta (String vin,int consecutivo) {
+		if (consecutivo != 0) {
+			Venta venta = ventas.bucarVenta(consecutivo);
+			return venta.toString();
+		}else {
+			Venta venta = ventas.BuscarVenta(vin);
+			return venta.toString();
+		}
+	}
+
+	
+	public String eliminarVenta (String vin, int consecutivo) {
+		return "";
+	}
+	
+	
 	
 	public String agregarVenta (Venta venta) {
 		boolean v = ventas.agregarVenta(venta);
@@ -258,6 +274,147 @@ public class Concesionario {
 	
 	public String getVentasFecha (Date fecha) {
 		return ventas.historialVentas(fecha);
+	}
+	
+	// metodos mantenimiento
+	
+	public String agregarVehiculoMant (Vehiculo V) {
+		boolean estado = mantenimientos.agregarVehiculo(V);
+		String mensaje = "";
+		if (estado == true) {
+			mensaje = "vehiculo agregado correctamente";
+		}else {
+			mensaje = "vehiculo no agregado(ya existe)";
+		}
+		return mensaje;
+	}
+    
+	public String eliminarVehiculoMant(String vin) {
+		boolean estado = mantenimientos.eliminarVehiculo(vin);
+		String mensaje = "";
+		if ( estado == true) {
+			mensaje = "Vehiculo eliminado correctamente";
+			
+		}else {
+			mensaje = "vehiculo no encontrado";
+		}
+		return mensaje;
+	}
+	
+	public boolean existeVinMant(String vin) {
+		Vehiculo v = mantenimientos.buscarVehiculo(vin);
+		if(v == null) {
+			return false;
+		}
+
+		return true;
+	}
+	public Vehiculo getVehiculoMant (String vin) {
+		return mantenimientos.buscarVehiculo(vin);
+	}
+	
+	public String buscarVehiculoMant (String vin) {
+		Vehiculo v = getVehiculoMant(vin);
+		String mensaje = "";
+		if (v == null) {
+			mensaje = "vehiculo no encontrado";
+			
+		}else if (v instanceof Motocicleta){
+			
+			Motocicleta m = (Motocicleta) v;
+			mensaje = m.toString() + v.tString();
+			
+		}else if (v instanceof Automovil) {
+			
+			Automovil a = (Automovil) v;
+			mensaje = a.toString() + v.tString();
+			
+		}else if (v instanceof Camion) {
+			Camion c = (Camion) v;
+			mensaje = c.toString() + v.tString();
+		}
+		
+		return mensaje;
+		
+	}
+
+	public ENUMtipoVehiculo tipoVehiculoMant ( String vin) {
+		Vehiculo v = mantenimientos.buscarVehiculo(vin);
+		if (v instanceof Automovil) {
+			return ENUMtipoVehiculo.AUTOMOVIL;
+		} else if(v instanceof Motocicleta) {
+			return ENUMtipoVehiculo.MOTOCICLETA;
+		} else if (v instanceof Camion) {
+			return ENUMtipoVehiculo.CAMION;
+		}
+		return null;
+		
+		
+	}
+
+
+	
+	public String actualizarVehiculoMant (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			int numeroPuertas, ENUMtipoTransmision tipoTrasnmision, ENUMtipoCombustible tipoCombustible,
+			ENUMtipoTraccion tipoTraccion, String nuevoVin) {
+		
+		Vehiculo v = mantenimientos.buscarVehiculo(vin);
+		Automovil a = (Automovil) v;
+		
+		a.setColor(color);
+		a.setKilometraje(kilometraje);
+		a.setMarca(marca);
+		a.setModelo(modelo);
+		a.setNumeroPuertas(numeroPuertas);
+		a.setTipoCombustible(tipoCombustible);
+		a.setTipoTraccion(tipoTraccion);
+		a.setTipoTrasnmision(tipoTrasnmision);
+		a.setVin(nuevoVin);
+		a.setYear(year);
+		String mensaje = "vehiculo actualizado";
+		
+		
+		return mensaje;	
+	}
+	
+	public String actualizarVehiculoMant (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			double capacidadCarga, ENUMtipoCarga tipoCarga, double longitud, int numeroEjes, String nuevoVin) {
+		
+		Vehiculo v = mantenimientos.buscarVehiculo(vin);
+		Camion c = (Camion) v;
+		c.setCapacidadCarga(capacidadCarga);
+		c.setColor(color);
+		c.setKilometraje(kilometraje);
+		c.setLongitud(longitud);
+		c.setMarca(marca);
+		c.setModelo(modelo);
+		c.setNumeroEjes(numeroEjes);
+		c.setTipoCarga(tipoCarga);
+		c.setVin(nuevoVin);
+		c.setYear(year);
+		String mensaje = "vehiculo actualizado";
+		return mensaje;
+	}
+	public String actualizarVehiculoMant (String marca, String modelo, String vin, String color, int kilometraje, int year,
+			ENUMtipoManillar tipoManillar, int numeroRuedas, ENUMtipoFreno tipoFreno, double cilindrada, String nuevoVin) {
+		Vehiculo v = mantenimientos.buscarVehiculo(vin);
+		Motocicleta m = (Motocicleta) v;
+		m.setCilindrada(cilindrada);
+		m.setColor(color);
+		m.setKilometraje(kilometraje);
+		m.setMarca(marca);
+		m.setModelo(modelo);
+		m.setNumeroRuedas(numeroRuedas);
+		m.setTipoFreno(tipoFreno);
+		m.setTipoManillar(tipoManillar);
+		m.setVin(nuevoVin);
+		m.setCilindrada(cilindrada);
+		String mensaje = "vehiculo actualizado";
+		return mensaje;
+	}
+	
+	public String listarVehiculosMant () {
+		return mantenimientos.listarVehiculos();
 	}
 	
 }

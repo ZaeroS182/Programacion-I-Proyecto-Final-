@@ -127,4 +127,8 @@ public class Ventas {
 		return mensaje;
 
 	}
+	
+	public String eliminarVenta () {
+		return "";
+	}
 }

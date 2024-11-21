@@ -148,6 +148,24 @@ public class main {
 		concesionario.agregarVehiculoInv(ca2);
 		concesionario.agregarVehiculoInv(ca3);
 		
+		/*****************************
+		 * Creacion Ventas
+		 *****************************/
+		
+		Venta v1 = new Venta(c2, m6, 26000000);
+		Venta v2 = new Venta(c15, m8, 12000000);
+		Venta v3 = new Venta(c3, m9, 7200000);
+		Venta v4 = new Venta(c19, a4, 115000000);
+		Venta v5 = new Venta(c8, a1, 34000000);
+		Venta v6 = new Venta(c11, ca2, 456000000);
+		
+		concesionario.agregarVenta(v1);
+		concesionario.agregarVenta(v2);
+		concesionario.agregarVenta(v3);
+		concesionario.agregarVenta(v4);
+		concesionario.agregarVenta(v5);
+		concesionario.agregarVenta(v6);
+		
 	}
 	
 	//Menu Principal

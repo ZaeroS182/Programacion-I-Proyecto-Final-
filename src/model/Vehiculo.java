@@ -73,7 +73,7 @@ public class Vehiculo implements InterfaceVehiculo{
 	}
 	
 	public String Referencia () {
-		String mensaje = "[ marca: " + this.marca + " modelo: " + this.modelo + " año: " + this.year + " vin: " + this.vin + " ]";
+		String mensaje = "[ marca: " + this.marca + " modelo: " + this.modelo + " año: " + this.year + " vin: " + this.vin + " ]" + "\n";
 		return mensaje;
 	}
 

@@ -9,6 +9,7 @@ import model.Automovil;
 import model.Camion;
 import model.Cliente;
 import model.Concesionario;
+import model.Mantenimiento;
 import model.Mantenimientos;
 import model.Motocicleta;
 import model.Vehiculo;
@@ -244,9 +245,11 @@ public class main {
 			String menuMantenimientos = "Gestion de Mantenimientos:"
 					+ "\n1. Registrar Vehiculo en Mantenimiento"
 					+ "\n2. Registrar mantenimiento a un vehiculo"
-					+ "\n3. Buscar mantenimiento"
-					+ "\n4. Modificar mantenimiento"
-					+ "\n5. Eliminar mantenimiento"
+					+ "\n3. Buscar Vehiculo en Mantenimiento"
+					+ "\n4. Eliminar Vehiculo en Mantenimiento"
+					+ "\n5. Modificar vehiculo en mantenimiento"
+					+ "\n6. Listar vehiculos en mantenimiento"
+					+ "\n7. Listar historial de mantenimiento de vehiculo"
 					+ "\n0. Volver";
 			int indica;
 			
@@ -358,12 +361,18 @@ public class main {
 			break;
 		}
 		case 4: {
-			modificarMantenimiento();
+			eliminarMantenimiento();
 			break;
 		}
 		case 5: {
-			eliminarMantenimiento();
+			modificarMantenimiento();
 			break;
+		}
+		case 6: {
+			listarVehiculosMant();
+		}
+		case 7: {
+			listarHistorialMant();
 		}
 
 		default:
@@ -373,6 +382,10 @@ public class main {
 	}
 
 
+
+	
+
+	
 
 	/************************
 	 * METODOS SUB-MENU	CLIENTES
@@ -853,7 +866,7 @@ public class main {
 	private static void registrarVehiculoMant() {
 
 		String vin = JOptionPane.showInputDialog("Ingrese el vin del vehiculo a registrar: ");
-		Vehiculo v = concesionario.getMantenimiento().buscarVehiculo(vin);
+		Vehiculo v = concesionario.getVehiculoMant(vin);
 		if (v != null) {
 			JOptionPane.showMessageDialog(null, "El vehiculo ya esta registrado en Mantenimiento");
 		} else {
@@ -917,7 +930,7 @@ public class main {
 				}
 			
 				Automovil automovil = new Automovil(marca, modelo, vin, color, km, year, numeroPuertas, transmision, combustible, traccion);
-				concesionario.getMantenimiento().agregarVehiculo(automovil);
+				concesionario.agregarVehiculoMant(automovil);
 				JOptionPane.showMessageDialog(null, "Automovil agregado exitosamente");
 				
 			} else if (seleccion == 2) {
@@ -955,7 +968,7 @@ public class main {
 				int ruedas = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de ruedas: "));
 				double cilindrada = Double.parseDouble(JOptionPane.showInputDialog("Indique la cilindrada: "));
 				Motocicleta motocicleta = new Motocicleta(marca, modelo, vin, color, km, year, tipoManillar, ruedas, tipoFreno, cilindrada);
-				concesionario.getMantenimiento().agregarVehiculo(motocicleta);
+				concesionario.agregarVehiculoMant(motocicleta);
 				JOptionPane.showMessageDialog(null, "Motocicleta agregada exitosamente");
 				
 			} else if (seleccion == 3) {
@@ -975,7 +988,7 @@ public class main {
 				double longitud = Double.parseDouble(JOptionPane.showInputDialog("Indique la longitud(Metros): "));
 				int ejes = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de ejes: "));
 				Camion camion = new Camion(marca, modelo, vin, color, km, year, capacidadCarga, tipoCarga, longitud, ejes);
-				concesionario.getMantenimiento().agregarVehiculo(camion);
+				concesionario.agregarVehiculoMant(camion);
 				JOptionPane.showMessageDialog(null, "Camion agregado exitosamente");
 			}
 			
@@ -984,36 +997,169 @@ public class main {
 	}
 	
 
+	
+
+	private static void buscarMantenimiento() {
+		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo que desea buscar: ");
+		JOptionPane.showMessageDialog(null, concesionario.buscarVehiculoMant(vin));
+		
+	}
+
+	private static void modificarMantenimiento() {
+		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo que desea buscar: ");
+		boolean existe =  concesionario.existeVinMant(vin);
+		if (existe == false) {
+			String marca = JOptionPane.showInputDialog("Ingrese la marca a actualizar: ");
+			String modelo = JOptionPane.showInputDialog("Ingrese l modeloa actualizar: ");
+			String color = JOptionPane.showInputDialog("Indique el color a actualizar: ");
+			String nuevoVin = JOptionPane.showInputDialog("Indique el nuevo VIN del vehiculo a actualizar: ");
+			int km = Integer.parseInt(JOptionPane.showInputDialog("Indique el kilometraje a actualizar: "));
+			int year = Integer.parseInt(JOptionPane.showInputDialog("Indique el año a actualizar: "));
+			
+			ENUMtipoVehiculo tipoVehiculo = concesionario.tipoVehiculoMant(vin);
+			if (tipoVehiculo == ENUMtipoVehiculo.AUTOMOVIL ) {
+				ENUMtipoTransmision transmision = null;
+				ENUMtipoCombustible combustible = null;
+				ENUMtipoTraccion traccion = null;	
+	
+				int tipoTransmision = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de transmision: "
+						+ "\n1. Manual"
+						+ "\n2. Automatica"
+						+ "\n3. CVT"
+						+ "\n4. Doble Embrague")) ;
+				int tipoCombustible = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de combustible: "
+						+ "\n1. Gasolina"
+						+ "\n2. Diesel"
+						+ "\n3. Biodiesel"
+						+ "\n4. Etanol"
+						+ "\n5. GNC")) ;
+				int tipoTraccion = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de traccion: "
+						+ "\n1. Delantera"
+						+ "\n2. Trasera"
+						+ "\n3. Integral")) ;
+				int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo numero de puertas: "));
+				if(tipoTransmision == 1) {
+					transmision = ENUMtipoTransmision.MANUAL;
+				} else if (tipoTransmision == 2) {
+					transmision = ENUMtipoTransmision.AUTOMATICA;
+				} else if (tipoTransmision == 3) {
+					transmision = ENUMtipoTransmision.CVT;
+				} else if (tipoTransmision == 4) {
+					transmision = ENUMtipoTransmision.DOBLE_EMBRAGUE;
+				}
+				if (tipoCombustible == 1) {
+					combustible = ENUMtipoCombustible.GASOLINA;
+				} else if (tipoCombustible == 2) {
+					combustible = ENUMtipoCombustible.DIESEL;
+				} else if (tipoCombustible == 3) {
+					combustible = ENUMtipoCombustible.BIODIESEL;
+				} else if (tipoCombustible == 4) {
+					combustible = ENUMtipoCombustible.ETANOL;
+				} else if  (tipoCombustible == 5) {
+					combustible = ENUMtipoCombustible.GNC;
+				}
+				if (tipoTraccion == 1) {
+					traccion = ENUMtipoTraccion.DELANTERA;
+				} else if (tipoTraccion == 2) {
+					traccion = ENUMtipoTraccion.TRASERA;
+				} else if (tipoTraccion == 3) {
+					traccion = ENUMtipoTraccion.INTEGRAL;
+				}
+				JOptionPane.showMessageDialog(null, concesionario.actualizarVehiculoMant(marca, modelo, vin, color, km, year, numeroPuertas, transmision, combustible, traccion, nuevoVin));
+				
+				
+				
+			} else if (tipoVehiculo == ENUMtipoVehiculo.MOTOCICLETA) {
+				ENUMtipoFreno tipoFreno = null;
+				ENUMtipoManillar tipoManillar = null;
+				int freno = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de freno: "
+						+ "\n1. Tambor"
+						+ "\n2. Disco"
+						+ "\n3. EBD"
+						+ "\n4. ABS")) ;
+				if(freno == 1) {
+					tipoFreno = ENUMtipoFreno.TAMBOR;
+				} else if (freno == 2) {
+					tipoFreno = ENUMtipoFreno.DISCO;
+				}else if (freno == 2) {
+					tipoFreno = ENUMtipoFreno.EBD;
+				} else if (freno == 2) {
+					tipoFreno = ENUMtipoFreno.ABS;
+				}
+				
+				int manillar = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de manillar: "
+						+ "\n1. Tubo"
+						+ "\n2. Clip On"
+						+ "\n3. Cruzado"
+						+ "\n4. Deportivo")) ;
+				if(manillar == 1) {
+					tipoManillar = ENUMtipoManillar.TUBO;
+				} else if (manillar == 2) {
+					tipoManillar = ENUMtipoManillar.CLIP_ON;
+				}else if (manillar == 2) {
+					tipoManillar = ENUMtipoManillar.CRUZADO;
+				} else if (manillar == 2) {
+					tipoManillar = ENUMtipoManillar.DEPORTIVO;
+				}
+				int ruedas = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de ruedas: "));
+				double cilindrada = Double.parseDouble(JOptionPane.showInputDialog("Indique la cilindrada: "));
+				JOptionPane.showMessageDialog(null, concesionario.actualizarVehiculoMant(marca, modelo, vin, color, km, year, tipoManillar, ruedas, tipoFreno, cilindrada, nuevoVin));
+				
+				
+				
+			} else if (tipoVehiculo == ENUMtipoVehiculo.CAMION) {
+				ENUMtipoCarga tipoCarga = null;
+				int carga = Integer.parseInt(JOptionPane.showInputDialog("Indique el tipo de carga: "
+						+ "\n1. Rigido"
+						+ "\n2. Articulado"
+						+ "\n3. Lona"));
+				if (carga == 1) {
+					tipoCarga = ENUMtipoCarga.RIGIDO;
+				} else if(carga == 2) {
+					tipoCarga = ENUMtipoCarga.ARTICULADO;
+				} else if  (carga == 3) {
+					tipoCarga = ENUMtipoCarga.LONA;
+				}
+				double capacidadCarga = Double.parseDouble(JOptionPane.showInputDialog("Indique la capacidad de carga (Toneladas): "));
+				double longitud = Double.parseDouble(JOptionPane.showInputDialog("Indique la longitud(Metros): "));
+				int ejes = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de ejes: "));
+				JOptionPane.showMessageDialog(null, concesionario.actualizarVehiculoMant(marca, modelo, vin, color, km, year, capacidadCarga, tipoCarga, longitud, ejes, nuevoVin));
+			}
+		}
+		
+	}
+
+	private static void eliminarMantenimiento() {
+		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo que desea buscar: ");
+		JOptionPane.showMessageDialog(null, concesionario.eliminarVehiculoMant(vin));
+		
+	}
+	
+	private static void listarVehiculosMant() {
+		JOptionPane.showMessageDialog(null, concesionario.listarVehiculosMant());
+		
+	}
 	private static void registrarMantenimiento() {
 		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo: ");
-		Vehiculo v = concesionario.getMantenimiento().buscarVehiculo(vin);
-		if(v != null) {
-			System.out.println("si esta agregando el vehiculo a la lista de mantenimiento");
-			
-			
+		Vehiculo v = concesionario.getVehiculoMant(vin);
+		if(v == null) {
+			double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese los detalles del mantenimiento"));
+			String registro = JOptionPane.showInputDialog("Ingrese los detalles del mantenimiento");
+			Mantenimiento m = new Mantenimiento (v,registro,precio);
+			JOptionPane.showMessageDialog(null, concesionario.registrarMantenimiento(m));
 
 		} else {
+			JOptionPane.showMessageDialog(null, "Vehiculo en mantenimiento no encontrado");
 			
-			registrarVehiculoMant();
 		}
 
 
 		
 	}
-
-	private static void buscarMantenimiento() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void modificarMantenimiento() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void eliminarMantenimiento() {
-		// TODO Auto-generated method stub
-		
+	
+	private static void listarHistorialMant() {
+		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo: ");
+		JOptionPane.showMessageDialog(null,"Historial de mantenimiento para el vehiculo\n" + concesionario.historialMantenimiento(vin));
 	}
 
 }

@@ -8,9 +8,10 @@ import java.util.Date;
 
 public class Ventas {
 	private ArrayList<Venta> ventas;
-
+	private ArrayList<Mantenimiento> registroMantenimientos;
 	public Ventas() {
 		this.ventas = new ArrayList<>();
+		this.registroMantenimientos = new ArrayList<>();
 	}
 
 	public Venta buscarVenta(String id) {
@@ -119,13 +120,8 @@ public class Ventas {
 	
 
 
+	
 	public String historialVentas(LocalDate fecha) {
-		return null;
-		
-	}
-
-	@SuppressWarnings("unlikely-arg-type")
-	public String historialVentas(Date fecha) {
 
 		String mensaje = "";
 		for (Venta v : ventas) {
@@ -137,7 +133,53 @@ public class Ventas {
 
 	}
 	
-	public String eliminarVenta () {
-		return "";
+	public String eliminarVenta (int consecutivo) {
+		for (Venta v : ventas) {
+			if (v.getConsecutivo() == consecutivo) {
+				ventas.remove(v);
+				return  "Venta Eliminada Exitosamente";
+			}
+		}
+		return "Venta no encontrada";
 	}
+	public String eliminarVenta (String vin) {
+		for (Venta v : ventas) {
+			if (v.getVin().equals(vin)) {
+				ventas.remove(v);
+				return  "Venta Eliminada Exitosamente";
+			}
+		}
+		return "Venta no encontrada";
+	}
+	
+	//metodos de mantenimientos
+	
+	public Mantenimiento BuscarMantenimientos (String vin) {
+		for (Mantenimiento m : registroMantenimientos) {
+			if (m.getVin().equals(vin)) {
+				return m;
+
+			}
+		}
+		return null;
+	}
+	
+	
+	public boolean agregarMantenimiento(Mantenimiento m) {
+			registroMantenimientos.add(m);
+			return true;
+	}
+	
+	public String historialMantenimiento (String vin) {
+		String mensaje = "";
+		for (Mantenimiento m : registroMantenimientos) {
+			if (m.getVin().equals(vin)) {
+				mensaje += m.toString() + "\n";
+
+			}
+		}
+		return mensaje;	
+	}
+	
+
 }

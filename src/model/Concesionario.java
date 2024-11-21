@@ -3,8 +3,6 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
-
 import ENUM.ENUMtipoCarga;
 import ENUM.ENUMtipoCombustible;
 import ENUM.ENUMtipoFreno;
@@ -236,6 +234,8 @@ public class Concesionario {
 	}
 	
 	// metodos Ventas
+	
+	
 	public String buscarVenta (String vin,int consecutivo) {
 		if (consecutivo != 0) {
 			Venta venta = ventas.bucarVenta(consecutivo);
@@ -248,7 +248,14 @@ public class Concesionario {
 
 	
 	public String eliminarVenta (String vin, int consecutivo) {
-		return "";
+		if (consecutivo != 0) {
+			String mensaje = ventas.eliminarVenta(consecutivo);
+			return mensaje;
+		}else {
+			String mensaje = ventas.eliminarVenta(vin);
+			return mensaje;
+		}
+		
 	}
 	
 	
@@ -278,6 +285,19 @@ public class Concesionario {
 
 		return ventas.historialVentas(fecha);
 	}
+	
+	public String registrarMantenimiento (Mantenimiento m) {
+		ventas.agregarMantenimiento(m);
+		eliminarVehiculoMant (m.getVin());
+		
+		return "Mantenimiento Registrado";
+	}
+	
+	public String historialMantenimiento(String vin) {
+		return ventas.historialMantenimiento(vin);
+	}
+	
+	
 	
 	// metodos mantenimiento
 	
@@ -419,6 +439,8 @@ public class Concesionario {
 	public String listarVehiculosMant () {
 		return mantenimientos.listarVehiculos();
 	}
+	
+	
 	
 }
 	

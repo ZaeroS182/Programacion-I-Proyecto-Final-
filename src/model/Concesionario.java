@@ -1,6 +1,7 @@
 package model;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -272,7 +273,9 @@ public class Concesionario {
 		return ventas.historialVentas(valor);
 	}
 	
-	public String getVentasFecha (Date fecha) {
+
+	public String getVentasFecha (LocalDate fecha) {
+
 		return ventas.historialVentas(fecha);
 	}
 	

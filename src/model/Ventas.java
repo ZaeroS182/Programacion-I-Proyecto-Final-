@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -116,8 +117,16 @@ public class Ventas {
 		
 		}
 	
+
+
+	public String historialVentas(LocalDate fecha) {
+		return null;
+		
+	}
+
 	@SuppressWarnings("unlikely-arg-type")
 	public String historialVentas(Date fecha) {
+
 		String mensaje = "";
 		for (Venta v : ventas) {
 			if (v.getFecha().equals(fecha)) {

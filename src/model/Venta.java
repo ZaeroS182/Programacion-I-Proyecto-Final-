@@ -16,8 +16,14 @@ public class Venta {
 	
 	@Override
 	public String toString() {
-		return "Venta [cliente: " + cliente.getNombre() + "id :" + cliente.getId()+ ", vehiculo=" + vehiculo.getVin() + vehiculo.getMarca() + ", fecha=" + fecha + ", precio=" + precio
-				+ ", consecutivo=" + consecutivo + "]";
+		return "Cliente: " + cliente.getNombre()
+				+ "\nID: " + cliente.getId()
+				+ "\nMarca: " +vehiculo.getMarca() 
+				+ "\nModelo: " + vehiculo.getModelo()
+				+ "\nVIN: " + vehiculo.getVin()
+				+ "\nFecha: " + fecha 
+				+ "\nPrecio = " + (int)precio + "pesos"
+				+ "\nConsecutivo: " + consecutivo;
 	}
 
 	public Venta(Cliente cliente,Vehiculo vehiculo,double precio) {

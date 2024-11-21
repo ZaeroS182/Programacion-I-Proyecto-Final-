@@ -152,7 +152,7 @@ public class Ventas {
 		return "Venta no encontrada";
 	}
 	
-	//metodos de mantenimientos
+	//metodos de mantenimiento
 	
 	public Mantenimiento BuscarMantenimientos (String vin) {
 		for (Mantenimiento m : registroMantenimientos) {
@@ -165,9 +165,9 @@ public class Ventas {
 	}
 	
 	
-	public boolean agregarMantenimiento(Mantenimiento m) {
+	public void agregarMantenimiento(Mantenimiento m) {
 			registroMantenimientos.add(m);
-			return true;
+
 	}
 	
 	public String historialMantenimiento (String vin) {

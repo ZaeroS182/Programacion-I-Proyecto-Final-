@@ -27,8 +27,10 @@ public class Automovil extends Vehiculo{
 
 	@Override
 	public String toString() {
-		return "Automovil [numeroPuertas=" + numeroPuertas + ", tipoTrasnmision=" + tipoTrasnmision
-				+ ", tipoCombustible=" + tipoCombustible + ", tipoTraccion=" + tipoTraccion + "]";
+		return "\nAutomovil, numeroPuertas: " + numeroPuertas 
+				+ "\nTipo de trasnmision: " + tipoTrasnmision
+				+ "\nTipo de combustible: " + tipoCombustible 
+				+ "\nTipo de traccion: " + tipoTraccion;
 	}
 
 

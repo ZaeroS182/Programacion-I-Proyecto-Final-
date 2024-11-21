@@ -19,8 +19,12 @@ public class Vehiculo implements InterfaceVehiculo{
 	
 
 	public String tString() {
-		return "Vehiculo [marca=" + marca + ", modelo=" + modelo + ", vin=" + vin + ", color=" + color
-				+ ", kilometraje=" + kilometraje + ", year=" + year + "]";
+		return "\nMarca: " + marca 
+				+ "\nModelo: " + modelo 
+				+ "\nVIN: " + vin 
+				+ "\nColor: " + color
+				+ "\nKilometraje: " + kilometraje 
+				+ "\nAño: " + year;
 	}
 
 
@@ -73,7 +77,7 @@ public class Vehiculo implements InterfaceVehiculo{
 	}
 	
 	public String Referencia () {
-		String mensaje = "[ marca: " + this.marca + " modelo: " + this.modelo + " año: " + this.year + " vin: " + this.vin + " ]" + "\n";
+		String mensaje = "Marca: " + this.marca + ", modelo: " + this.modelo + ", año: " + this.year + ", VIN: " + this.vin  + "\n";
 		return mensaje;
 	}
 

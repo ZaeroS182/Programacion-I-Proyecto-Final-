@@ -21,8 +21,10 @@ public class Camion extends Vehiculo{
 	
 
 	public String toString() {
-		return "Camion [capacidadCarga=" + capacidadCarga + ", tipoCarga=" + tipoCarga + ", longitud=" + longitud
-				+ ", numeroEjes=" + numeroEjes + "]";
+		return "\nCamion, capacidadCarga: " + capacidadCarga 
+				+ "\nTipo de carga: " + tipoCarga 
+				+ "\nLongitud: " + longitud
+				+ "\nNumero de ejes: " + numeroEjes;
 	}
 
 

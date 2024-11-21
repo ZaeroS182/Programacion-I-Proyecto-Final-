@@ -1,11 +1,11 @@
 package model;
 
-public class Mantenimiento extends Venta{
+public class Mantenimiento{
 	private Vehiculo vehiculo;
 	private String Caracteristicas;
 	
 	public Mantenimiento(Cliente cliente,Vehiculo vehiculo,String caracteristicas) {
-		super(cliente);
+
 		this.vehiculo=vehiculo;
 		this.Caracteristicas=caracteristicas;
 	}

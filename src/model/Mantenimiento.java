@@ -15,7 +15,7 @@ public class Mantenimiento{
 		this.precio = precio;
 	}
 	public String toString () {
-		return vehiculo.Referencia() + Caracteristicas;
+		return vehiculo.Referencia() + Caracteristicas + precio;
 	}
 
 	public Vehiculo getVehiculo() {

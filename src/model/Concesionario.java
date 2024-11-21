@@ -83,8 +83,6 @@ public class Concesionario {
 		return inventario.buscarVehiculo(vin);
 	}
 	
-	
-	
 	public String buscarVehiculoInv(String vin) {
 		Vehiculo v = getVehiculoInv(vin);
 		String mensaje = "";
@@ -288,20 +286,15 @@ public class Concesionario {
 		return ventas.historialVentas(fecha);
 	}
 	
-	public String registrarMantenimiento (Mantenimiento m) {
-		ventas.agregarMantenimiento(m);
-		eliminarVehiculoMant (m.getVin());
-		
-		return "Mantenimiento Registrado";
-	}
+	
+	// Metodos Mantenimiento
+	
+
 	
 	public String historialMantenimiento(String vin) {
 		return ventas.historialMantenimiento(vin);
 	}
 	
-	
-	
-	// metodos mantenimiento
 	
 	public String agregarVehiculoMant (Vehiculo V) {
 		boolean estado = mantenimientos.agregarVehiculo(V);
@@ -312,6 +305,11 @@ public class Concesionario {
 			mensaje = "vehiculo no agregado(ya existe)";
 		}
 		return mensaje;
+	}
+	
+	public String registrarMantenimiento (Mantenimiento m) {
+		ventas.agregarMantenimiento(m);		
+		return "Mantenimiento Registrado";
 	}
     
 	public String eliminarVehiculoMant(String vin) {
@@ -347,16 +345,16 @@ public class Concesionario {
 		}else if (v instanceof Motocicleta){
 			
 			Motocicleta m = (Motocicleta) v;
-			mensaje = m.toString() + v.tString();
+			mensaje = v.tString() + m.toString();
 			
 		}else if (v instanceof Automovil) {
 			
 			Automovil a = (Automovil) v;
-			mensaje = a.toString() + v.tString();
+			mensaje = v.tString() + a.toString();
 			
 		}else if (v instanceof Camion) {
 			Camion c = (Camion) v;
-			mensaje = c.toString() + v.tString();
+			mensaje = v.tString() + c.toString();
 		}
 		
 		return mensaje;

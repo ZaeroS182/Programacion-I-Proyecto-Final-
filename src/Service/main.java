@@ -4,11 +4,7 @@ package Service;
 
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import javax.swing.JOptionPane;
-
-
 import model.Automovil;
 import model.Camion;
 import model.Cliente;
@@ -30,24 +26,135 @@ public class main {
 	
 	public static Concesionario concesionario = new Concesionario("kia");
 	
-	public static void quemarClientes() {
-		Cliente c1 = new Cliente("Jorge", "jojo@gmail.com", "311", "Av 111", "1");
-		Cliente c2 = new Cliente("Luis", "luis@gmail.com", "322", "Av 222", "2");
-		Cliente c3 = new Cliente("Buba", "buba@gmail.com", "333", "Av 333", "3");
-		Cliente c4 = new Cliente("Tristo", "tristo@gmail.com", "344", "Av 444", "4");
-		Cliente c5 = new Cliente("Negro", "negro@gmail.com", "355", "Av 555", "5");
+	public static void quemarDatos() {
+		Cliente c1 = new Cliente("Jorge", "jojo@gmail.com", "3112458795", "Calle 13 # 24-07", "1");
+		Cliente c2 = new Cliente("Luis", "luis@gmail.com", "3227845785", "Cra 12  05-17", "2");
+		Cliente c3 = new Cliente("Buba", "buba@gmail.com", "3158746978", "Av centenario #8-16", "3");
+		Cliente c4 = new Cliente("Tristo", "tristo@gmail.com", "3105542310", "Calle 18 # 3-7", "4");
+		Cliente c5 = new Cliente("Negro", "negro@gmail.com", "3130126578", "Av Camello # 23-10", "5");
+		Cliente c6 = new Cliente("Santiago", "santiago@gmail.com", "3112458795", "Calle 6 #8-40", "6");
+		Cliente c7 = new Cliente("Edwin", "edwin@gmail.com", "3227845785", "Cra 5# 5-25", "7");
+		Cliente c8 = new Cliente("Jhonnatan", "jhonnatan@gmail.com", "3158746978", "Calle 9N #6-26", "8");
+		Cliente c9 = new Cliente("Belen", "belen@gmail.com", "3105542310", "Av Bolivar #8-40", "9");
+		Cliente c10 = new Cliente("Alustriel", "Alustriel@gmail.com", "3130126578", "Calle 12 #9-17", "10");
+		Cliente c11 = new Cliente("Humberto", "humberto@gmail.com", "3112458795", "Av 11 # 08-17", "11");
+		Cliente c12 = new Cliente("Marleny", "marleny@gmail.com", "3227845785", "Cra 18 # 16-32", "12");
+		Cliente c13 = new Cliente("Jean", "jean@gmail.com", "3158746978", "Calle 4 # 4-26", "13");
+		Cliente c14 = new Cliente("Louis", "louis@gmail.com", "3105542310", "Av 12 #8-28", "14");
+		Cliente c15 = new Cliente("Natalia", "natalia@gmail.com", "3130126578", "Calle 9 # 11-30", "15");
+		Cliente c16 = new Cliente("Valentina", "valentina@gmail.com", "3112458795", "Av sur #70-80", "16");
+		Cliente c17 = new Cliente("Pedro", "pedro@gmail.com", "3227845785", "Av 2da # 9-36", "17");
+		Cliente c18 = new Cliente("Fatima", "fatima@gmail.com", "3158746978", "Av 8 #5-18", "18");
+		Cliente c19 = new Cliente("Teresa", "teresa@gmail.com", "3105542310", "Cra 4ta #24-7", "19");
+		Cliente c20 = new Cliente("Adiela", "adiela@gmail.com", "3130126578", "Calle 1ra # 7-23", "20");
 		
 		concesionario.agregarCliente(c1);
 		concesionario.agregarCliente(c2);
 		concesionario.agregarCliente(c3);
 		concesionario.agregarCliente(c4);
 		concesionario.agregarCliente(c5);
+		concesionario.agregarCliente(c6);
+		concesionario.agregarCliente(c7);
+		concesionario.agregarCliente(c8);
+		concesionario.agregarCliente(c9);
+		concesionario.agregarCliente(c10);
+		concesionario.agregarCliente(c11);
+		concesionario.agregarCliente(c12);
+		concesionario.agregarCliente(c13);
+		concesionario.agregarCliente(c14);
+		concesionario.agregarCliente(c15);
+		concesionario.agregarCliente(c16);
+		concesionario.agregarCliente(c17);
+		concesionario.agregarCliente(c18);
+		concesionario.agregarCliente(c19);
+		concesionario.agregarCliente(c20);
+		
+		/*************
+		 * Creacion Motos
+		 ***************/
+		
+		ENUMtipoManillar clipOn = ENUMtipoManillar.CLIP_ON;
+		ENUMtipoManillar cruzado = ENUMtipoManillar.CRUZADO;
+		ENUMtipoManillar deportivo = ENUMtipoManillar.DEPORTIVO;
+		ENUMtipoManillar tubo = ENUMtipoManillar.TUBO;
+		ENUMtipoFreno abs = ENUMtipoFreno.ABS;
+		ENUMtipoFreno disco = ENUMtipoFreno.DISCO;
+		ENUMtipoFreno ebd = ENUMtipoFreno.EBD;
+		ENUMtipoFreno tambor = ENUMtipoFreno.TAMBOR;
+
+		Motocicleta m1 = new Motocicleta("AKT", "NKD 125", "1", "Negro", 50, 2023, clipOn, 2, abs, 124);
+		Motocicleta m2 = new Motocicleta("Pulsar", "NS 200", "2", "Blanco", 5201, 2016, clipOn, 2, disco, 199);
+		Motocicleta m3 = new Motocicleta("Kawasaki", "Ninja 300", "3", "Verde", 0, 2017, clipOn, 2, ebd, 299);
+		Motocicleta m4 = new Motocicleta("Suzuki", "GSXR 600", "4", "Azul", 78450, 2012, clipOn, 2, tambor, 600);
+		Motocicleta m5 = new Motocicleta("Honda", "XRE 300", "5", "Naranja", 24698, 2019, cruzado, 2, abs, 311);
+		Motocicleta m6 = new Motocicleta("Royal Enfield", "Himalayan", "6", "Arena", 8794, 2015, cruzado, 2, disco, 199);
+		Motocicleta m7 = new Motocicleta("KTM", "Duke 400", "7", "Azul claro", 89784, 2008, cruzado, 2, ebd, 400);
+		Motocicleta m8 = new Motocicleta("Husqvarna", "Nuda 900", "8", "Gris", 0, 2025, cruzado, 2, tambor, 750);
+		Motocicleta m9 = new Motocicleta("Ducati", "Diavel", "9", "Negro", 50, 2024, deportivo, 2, abs, 900);
+		Motocicleta m10 = new Motocicleta("Suzuki", "Burgman", "10", "Blanco", 5201, 2022, tubo, 2, disco, 125);
+		
+		concesionario.agregarVehiculoInv(m1);
+		concesionario.agregarVehiculoInv(m2);
+		concesionario.agregarVehiculoInv(m3);
+		concesionario.agregarVehiculoInv(m4);
+		concesionario.agregarVehiculoInv(m5);
+		concesionario.agregarVehiculoInv(m6);
+		concesionario.agregarVehiculoInv(m7);
+		concesionario.agregarVehiculoInv(m8);
+		concesionario.agregarVehiculoInv(m9);
+		concesionario.agregarVehiculoInv(m10);
+
+		/*************
+		 * Creacion Automoviles
+		 ***************/
+		
+		ENUMtipoTransmision automatica = ENUMtipoTransmision.AUTOMATICA;
+		ENUMtipoTransmision manual = ENUMtipoTransmision.MANUAL;
+		ENUMtipoTransmision cvt = ENUMtipoTransmision.CVT;
+		ENUMtipoTransmision dobleEmbrague = ENUMtipoTransmision.DOBLE_EMBRAGUE;
+		ENUMtipoCombustible biodiesel = ENUMtipoCombustible.BIODIESEL;
+		ENUMtipoCombustible diesel = ENUMtipoCombustible.DIESEL;
+		ENUMtipoCombustible etanol = ENUMtipoCombustible.ETANOL;
+		ENUMtipoCombustible gasolina = ENUMtipoCombustible.GASOLINA;
+		ENUMtipoCombustible gnc = ENUMtipoCombustible.GNC;
+		ENUMtipoTraccion delantera = ENUMtipoTraccion.DELANTERA;
+		ENUMtipoTraccion trasera = ENUMtipoTraccion.TRASERA;
+		ENUMtipoTraccion integral = ENUMtipoTraccion.INTEGRAL;
+		
+		Automovil a1 = new Automovil("Ford", "Fiesta", "11", "Blanco", 32100, 2014, 5, automatica, biodiesel, delantera);
+		Automovil a2 = new Automovil("Chevrolent", "Optra", "12", "Gris", 64578, 2006, 5, manual, diesel, trasera);
+		Automovil a3 = new Automovil("Kia", "Picanto", "13", "Gris Oscuro", 39874, 2018, 5, cvt, etanol, integral);
+		Automovil a4 = new Automovil("Renault", "Logan", "14", "Nieve", 0, 2024, 5, dobleEmbrague, gasolina, trasera);
+		Automovil a5 = new Automovil("Suzuki", "Vitara", "15", "Rojo", 10800, 2021, 5, dobleEmbrague, gnc, trasera);
+		
+		concesionario.agregarVehiculoInv(a1);
+		concesionario.agregarVehiculoInv(a2);
+		concesionario.agregarVehiculoInv(a3);
+		concesionario.agregarVehiculoInv(a4);
+		concesionario.agregarVehiculoInv(a5);
+		
+		/*************
+		 * Creacion Camiones
+		 ***************/
+		ENUMtipoCarga articulado = ENUMtipoCarga.ARTICULADO;
+		ENUMtipoCarga lona = ENUMtipoCarga.LONA;
+		ENUMtipoCarga rigido = ENUMtipoCarga.RIGIDO;
+
+		Camion ca1 = new Camion("Chevrolet", "NP 500", "16", "Azul", 287954, 2017, 8000, articulado, 10, 6);
+		Camion ca2 = new Camion("Isuzu", "Dr 4500", "17", "Blanco", 87450, 2022, 7874, lona, 12, 4);
+		Camion ca3 = new Camion("Iveco", "IVX 9", "18", "Plata", 367821, 2015, 9600, rigido, 14, 8);
+		
+		concesionario.agregarVehiculoInv(ca1);
+		concesionario.agregarVehiculoInv(ca2);
+		concesionario.agregarVehiculoInv(ca3);
 		
 	}
+	
+	//Menu Principal
 
 	public static void main (String[] args) {
 		
-		quemarClientes();
+		quemarDatos();
 		
 		String menuPrincipal = "Por favor indique una opcion: "
 				+ "\n1. Clientes"
@@ -64,7 +171,7 @@ public class main {
 		} while (indicaMenu != 0);
 
 	}
-	
+	// Sub-Menu
 	private static void seleccionMenu(int indicaMenu) {
 		switch (indicaMenu) {
 		case 1: {
@@ -105,9 +212,6 @@ public class main {
 			String menuVentas = "Gestion de Ventas:"
 					+ "\n1. Registrar venta"
 					+ "\n2. Buscar venta"
-					+ "\n3. Modificar venta"
-					+ "\n4. Eliminar venta"
-					+ "\n5. Listar ventas"
 					+ "\n0. Volver";
 			int indica;
 			
@@ -196,7 +300,7 @@ public class main {
 			break;
 		}
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + indica);
+			break;
 		}
 
 		
@@ -212,15 +316,7 @@ public class main {
 			buscarVenta();
 			break;
 		}
-		case 3: {
-			modificarVenta();
-			break;
-		}
-		case 4: {
-			eliminarVenta();
-			break;
-		}
-
+	
 		default:
 			break;
 		}
@@ -261,7 +357,7 @@ public class main {
 
 
 	/************************
-	 * 			CLIENTES
+	 * METODOS SUB-MENU	CLIENTES
 	 *************************/
 	
 	private static void agregarCliente() {
@@ -333,12 +429,12 @@ public class main {
 	}
 
 	/****************************
-	 * 		VEHICULOS INVENTARIO
+	 *METODOS SUB-MENU VEHICULOS INVENTARIO
 	 **************************/
 	private static void agregarVehiculoInv() {
 		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo a agregar: ");
 		boolean existe =  concesionario.existeVin(vin);
-		if (existe == true) {
+		if (existe != true) {
 			String marca = JOptionPane.showInputDialog("Ingrese la marca del vehiculo: ");
 			String modelo = JOptionPane.showInputDialog("Ingrese l modelo del vehiculo: ");
 			String color = JOptionPane.showInputDialog("Indique el color del vehiculo: ");
@@ -612,7 +708,7 @@ public class main {
 	}
 	
 	/************************************
-	 *			VENTAS
+	 *		METODOS SUB-MENU VENTAS
 	 *************************************/
 	
 	private static void registrarVenta() {
@@ -641,7 +737,7 @@ public class main {
 				+ "\n1. Tipo de vehiculo"
 				+ "\n2. ID del cliente"
 				+ "\n3. Fecha"
-				+ "\n4. Volver";
+				+ "\n0. Volver";
 		int select;
 		do { 
 			select = Integer.parseInt(JOptionPane.showInputDialog(menu));
@@ -715,15 +811,11 @@ public class main {
 		} else {
 			JOptionPane.showMessageDialog(null, mensaje);
 		}
-		
 
-		
-		
-		
 	}
 	
 	private static void buscarFecha() {
-		String fecha = JOptionPane.showInputDialog("Ingrese la fecha: (Ej: 19-08-2019");
+		String fecha = JOptionPane.showInputDialog("Ingrese la fecha: (Ej: 2019-11-23");
 		LocalDate fechaa = LocalDate.parse(fecha);
 		String mensaje = concesionario.getVentasFecha(fechaa);
 		if (mensaje.isEmpty()) {
@@ -735,28 +827,13 @@ public class main {
 		
 	}
 
-	private static void modificarVenta() {
-		String vin = JOptionPane.showInputDialog("Ingrese el VIN del vehiculo: ");
-		int consecutivo = Integer.parseInt(JOptionPane.showInputDialog("Indique el numero de consecutivo: "));
-		String venta = concesionario.buscarVenta(vin, consecutivo);
-		
-
-		
-	}
-
-	private static void eliminarVenta() {
-		
-
-		
-	}
-
-
 	
 	/********************************
 	 * 			MANTENIMIENTOS
 	 ********************************/
 	
 	private static void registrarVehiculoMant() {
+
 		String vin = JOptionPane.showInputDialog("Ingrese el vin del vehiculo a registrar: ");
 		Vehiculo v = concesionario.getMantenimiento().buscarVehiculo(vin);
 		if (v != null) {

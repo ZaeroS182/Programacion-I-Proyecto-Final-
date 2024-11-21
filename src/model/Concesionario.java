@@ -83,6 +83,8 @@ public class Concesionario {
 		return inventario.buscarVehiculo(vin);
 	}
 	
+	
+	
 	public String buscarVehiculoInv(String vin) {
 		Vehiculo v = getVehiculoInv(vin);
 		String mensaje = "";
